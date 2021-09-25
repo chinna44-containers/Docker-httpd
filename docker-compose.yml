@@ -1,0 +1,17 @@
+[16:20] Manukonda, Kalyan (GE CoreTech & Cyber, consultant)
+    version: '2'
+services:
+  httpd:
+   image: registry.gear.ge.com/ong-app_studio/httpd-oidc
+   env_file:
+    - container.env
+   ports:
+    - "80:80"
+    - "443:443"
+   networks:
+    - containerservice
+   links:
+    - containerservice:containerservice
+networks:
+  containerservice:
+    driver: bridge
